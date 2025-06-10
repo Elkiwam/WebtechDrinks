@@ -55,22 +55,25 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 console.log("Glass Type:", drink.strGlass);
 
 // Assign different images to each glass type
+//try to sanitize /rewrite 
 const glassImages = {
-  "Highball glass": "./glasses/001.png",
-  "Cocktail glass": "./glasses/001.png",
-  "Old-fashioned glass": "./glasses/001.png",
-  "Collins glass": "./glasses/001.png",
-  "Champagne flute": "./glasses/001.png",
-  "Whiskey glass": "./glasses/001.png",
-  "Martini glass": "images/martini_glass.png",
-  "Shot glass": "./glasses/001.png",
-  "Pint glass": "./glasses/001.png",
-  "Margarita glass": "./glasses/001.png",
-  "Hurricane glass": "./glasses/002.png",
-  "Wine Glass": "./glasses/002.png",
-  "Beer mug": "./glasses/002.png",
-  "Mason jar": "./glasses/002.png",
-  "Other/unknown": "./glasses/002.png"
+  "Highball glass": "./glasses/highball-glass.svg",
+  "Cocktail glass": "./glasses/martini-glass.svg",
+  "Old-fashioned glass": "./glasses/old-fashioned.svg",
+  "Collins Glass": "./glasses/collins-glass.svg",
+  //"Collins glass": "./glasses/collins-glass.svg",
+  "Champagne flute": "./glasses/champagne-flute.svg",
+  "Whiskey glass": "./glasses/whiskey-glass.svg",
+  "Martini glass": "./glasses/martini-glass.svg",
+  "Shot glass": "./glasses/shot-glass.svg",
+  "Pint glass": "./glasses/pint-glass.svg",
+  "Beer glass": "./glasses/pint-glass.svg",
+  "Margarita glass": "./glasses/margharita-glass.svg",
+  "Hurricane glass": "./glasses/hurricane.svg",
+  "Wine Glass": "./glasses/wine-glass.svg",
+  "Beer mug": "./glasses/mug.svg",
+  "Mason jar": "./glasses/mason-jar.svg",
+  "Other/unknown": "./glasses/undefined.svg",
 };
 
 // Check if the glass type exists in the mapping and assign the corresponding image
