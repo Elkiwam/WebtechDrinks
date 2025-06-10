@@ -98,15 +98,18 @@ glassType.appendChild(glassImg);
 const ingredientCount = ingredients.filter(ingredient => ingredient).length;
 console.log("Ingredients Count:", ingredientCount);
 
-if (ingredientCount <= 3) {
+if (ingredientCount <= 2) {
   console.log("This drink difficulty is labeled as: Quick and Easy");
-  ingrCounter.innerHTML += `Quick and Easy  (${ingredientCount} ingredients)`;
-} else if (ingredientCount > 6) {
-  console.log("This drink difficulty is labeled as: Impressive");
-  ingrCounter.innerHTML += `Impressive  (${ingredientCount} ingredients)`;
+  ingrCounter.innerHTML += `Quick and Easy!  (${ingredientCount} ingredients)`;
+} else if (ingredientCount <= 4) {
+  console.log("This drink difficulty is labeled as: Quite easy!");
+  ingrCounter.innerHTML += `Quite easy!  (${ingredientCount} ingredients)`;
+}else if (ingredientCount <= 6) {
+  console.log("This drink difficulty is labeled as: Worth it!");
+  ingrCounter.innerHTML += `Worth it!  (${ingredientCount} ingredients)`;
 } else {
-  console.log("This drink is labeled as: Worth it!");
-  ingrCounter.innerHTML += ` Worth it! (${ingredientCount} ingredients)`;
+  console.log("This drink is labeled as: Impressive!");
+  ingrCounter.innerHTML += ` Impressive! (${ingredientCount} ingredients)`;
 }
 
   // Check if the drink has preparation instructions
