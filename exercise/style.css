@@ -12,6 +12,8 @@
 h1,
 h2 {
   margin-bottom: 0.4em;
+  margin-top: 0.4em;
+
 }
 
 p {
@@ -29,10 +31,8 @@ p {
  * Feel free to change this!
  */
 
-/* commit not received */
-
 .card {
-  background-color: #8a8a8a;
+  background-color: #242424;
   color: rgb(255, 255, 255);
   border-radius: 5px;
   padding: 15px;
@@ -41,4 +41,31 @@ p {
 .main-image img {
   width: 100%;
   display: block;
+}
+
+
+/* my code */
+
+.button {
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+}
+
+.button1:hover {
+  background-color: #000000;
+  color: white;
 }
