@@ -12,7 +12,7 @@
 h2 {
   font-size: 2rem;
   margin-bottom: 0.2em;
-  margin-top: 0.8em;
+  margin-top: 1.6em;
 }
 
 h3 {
@@ -25,7 +25,7 @@ p {
   font-size: 1rem;
   color: #ffffff;
   margin-bottom: 10px;
-  margin-top: 5px;
+  margin-top: 0;
   line-height: 1.2;
 }
 
@@ -45,7 +45,7 @@ hr {
 /*Just some styling to make the card visible. Feel free to change this!*/
 
 .card {
-  background-color: #242424;
+  background-color: #000f43;
   color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 20px;
@@ -71,8 +71,7 @@ hr {
 }
 
 
-/* my code */
-
+/* my code look for errors here first*/
 .button {
   border: none;
   color: white;
@@ -81,19 +80,20 @@ hr {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 0;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 25px;
+  /* border-radius: 25px; */
 }
 
 .button1 {
   background-color: white;
   color: black;
+  grid-area: button;
 }
 
 .button1:hover {
-  background-color: #000000;
+  background-color: #32447f;
   color: white;
 }
 
@@ -106,7 +106,7 @@ hr {
   height: 4vw;
   padding: 10px;
   border-radius: 50%;
-  background-color: #868686;
+  background-color: #32447f;
 }
 
 .glass-type img {
@@ -124,3 +124,59 @@ hr {
 .card
 .card__icon
 .card__icon—coffee-mug */
+
+.ingredientCount {
+  font-size: 1rem;
+  color: #96a0c0;
+  margin-bottom: 1vw;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.prep-info {
+  margin-bottom: 1em;
+  margin-top: 1.5em;
+}
+
+/* collapsible description */
+.collapsible {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 12px 18px;
+  text-align: left;
+  display: inline-block;
+  margin: 0;
+  align-content: stretch;
+  grid-area: collapsible;
+
+}
+
+.active {
+  align-self: start;
+  justify-self: stretch;
+}
+
+.collapsible:hover {
+  background-color: #32447f;
+  color: rgb(255, 255, 255);
+}
+
+.content {
+  padding: 0 12px;
+  display: none;
+  overflow: hidden;
+  background-color: #32447f;
+  margin-top: 0.6em;
+  /* grid-area is used to place this class in the grid inside the button-layout */
+  grid-area: description;
+}
+
+.button-layout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-self: start;
+  justify-self: stretch;
+  grid-template-areas:
+    "button collapsible"
+    "description description";
+}

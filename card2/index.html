@@ -14,12 +14,28 @@
 <body>
   <div class="card">
 
-    <a href="./"><button class="button button1">suggest new drink</button></a>
-    
+    <div class="button-layout">
+    <!-- refresh the page with this button -->
+    <a href="./"><button class="button button1">Suggest new drink</button></a>
+  
+     <!-- collapsible description -->
+  <p class="collapsible">See full recipe</p>
+  <div class="content">
+    <p class="prep-info" data-js="preparation">
+      <!-- prep info will be dynamically added here -->
+  </p>
+  </div>
+</div>
+
     <div class="cardContent">
     <h2 data-js="title">
       <!-- display title after loading data -->
     </h2>
+   
+    <p class="ingredientCount" data-js="ingrCounter"> 
+      <!-- Ingredient amount and info will be dynamically added here -->
+   </p>
+
 
     <h3>You will need </h3>
     <hr>
@@ -31,7 +47,6 @@
       <!-- Glass will be dynamically added here -->
     </div>
   </div>
-
 
     <div data-js="photo" class="main-image">
       <!-- append image later in here -->
