@@ -24,7 +24,7 @@ h2 {
   font-size: 2.4rem;
   margin-bottom: 0;
   margin-top: 3vw;
-  font-family: PlayPen;
+  font-family: BebasNeue;
   letter-spacing: 0.01em;
 }
 
@@ -85,6 +85,7 @@ hr {
 
 
 /* my code look for errors here first*/
+/* button style for card buttons */
 .button {
   border: none;
   color: white;
@@ -107,6 +108,18 @@ hr {
 
 .button1:hover {
   background-color: #32447f;
+  color: white;
+}
+
+/* second button style */
+.button2 {
+  background-color: #32447f;
+  color: rgb(255, 255, 255);
+  grid-area: button;
+}
+
+.button2:hover {
+  background-color: #bdbdff;
   color: white;
 }
 
