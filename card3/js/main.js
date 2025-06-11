@@ -1,4 +1,4 @@
-console.log("...fetching a random cocktail 🍹");
+console.log("...fetching a random cocktail");
 
 // prepare needed dom elements
 const titleContainer = document.querySelector("[data-js='title']");
@@ -12,10 +12,20 @@ const ingrCounter = document.querySelector("[data-js='ingrCounter']");
 //  preparation instructions
 const preparationContainer = document.querySelector("[data-js='preparation']");
 
-// // card element change bg color on click preparation
-// const card = document.querySelector("card");
-// card.style.backgroundColor = "#f0f0f0"; // Set a light background color for the card
+// // card element change colors on click
+const card = document.querySelector(".card");
+card.style.backgroundColor = "rgb(120, 120, 240)";
+card.style.color = "rgb(210, 210, 255)";
+// // toggle button color
+// const button1 = document.querySelector(".button1");
+// const button2 = document.querySelector(".button2");
+// button1.style.backgroundColor = "rgb(240, 30, 30)"; 
+// button1.style.color = "rgb(0, 255, 255)"; 
+// button2.style.backgroundColor = "rgb(30, 30, 30)"; 
+// button2.style.color = "rgb(255, 255, 255)";
 
+//slider test for toggle 
+const slider = document.querySelector(".slider");
 
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
   .then((response) => response.json())
@@ -149,3 +159,31 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+// color toggler styling the card bg and texts 
+slider.addEventListener("click", function() {
+  const currentColor = card.style.backgroundColor;
+  const color1 = "rgb(30, 30, 30)"; 
+  const color2 = "rgb(120, 120, 240)"; 
+  const currentTextColor = card.style.color;
+  const textColor1 = "rgb(210, 210, 255)"; 
+  const textColor2 = "rgb(255, 255, 255)"; 
+  // const buttonColor1 = "rgb(240, 30, 30)"; 
+  // const buttonColor2 = "rgb(30, 30, 30)"; 
+  // const button2Color1 = "rgb(240, 30, 30)";
+  // const button2Color2 = "rgb(30, 30, 30)";
+
+  if (currentColor === color1) {
+    card.style.backgroundColor = color2; 
+    card.style.color = textColor1; 
+    // button1.style.backgroundColor = buttonColor1; 
+    // button2.style.backgroundColor = button2Color1;
+    console.log("Color mode 1");
+  } else {
+    card.style.backgroundColor = color1; // Change back to original color
+    card.style.color = textColor2;
+    // button1.style.backgroundColor = buttonColor2;
+    // button2.style.backgroundColor = button2Color2;
+    console.log("Color mode 2");
+  }
+});

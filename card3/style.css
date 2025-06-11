@@ -1,7 +1,4 @@
-/** 
- * A very basic CSS reset:
- * More about CSS resets: https://meyerweb.com/eric/tools/css/reset/
- */
+/* A very basic CSS reset: More about CSS resets: https://meyerweb.com/eric/tools/css/reset/ */
 
 @font-face {
   font-family: BebasNeue;
@@ -36,7 +33,7 @@ h3 {
 
 p {
   font-size: 1rem;
-  color: #ffffff;
+  /* color: #ffffff; */
   margin-bottom: 10px;
   margin-top: 0;
   line-height: 1.2;
@@ -56,10 +53,10 @@ hr {
 }
 
 /*Just some styling to make the card visible. Feel free to change this!*/
-
 .card {
-  background-color: #000f43;
-  color: rgb(255, 255, 255);
+  /* bg-color is currently defined by js */
+  /* background-color: #000f43; */
+  /* color: rgb(255, 255, 255); */
   border-radius: 10px;
   padding: 20px;
   flex-direction: column;
@@ -83,12 +80,10 @@ hr {
   padding-top: 3vw;
 }
 
-
-/* my code look for errors here first*/
 /* button style for card buttons */
 .button {
   border: none;
-  color: white;
+  /* color: white; */
   padding: 12px 18px;
   text-align: center;
   text-decoration: none;
@@ -123,7 +118,6 @@ hr {
   color: white;
 }
 
-
 .glass-type {
   display: flex;
   justify-content: center;
@@ -153,7 +147,7 @@ hr {
 
 .ingredientCount {
   font-size: 1rem;
-  color: #96a0c0;
+  /* color: #96a0c0; */
   margin-bottom: 1.8vw;
   margin-top: 0;
   line-height: 1.2;
@@ -174,7 +168,6 @@ hr {
   margin: 0;
   align-content: stretch;
   grid-area: collapsible;
-
 }
 
 .active {
@@ -205,4 +198,83 @@ hr {
   grid-template-areas:
     "button collapsible"
     "description description";
+}
+
+/* circle for toggle button */
+.toggleCircle {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  /* background-color: blue; */
+  margin: 1vw;
+}
+
+/* COPIED CODE The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(120, 120, 240);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: rgb(30, 30, 30);
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px rgb(30, 30, 30);
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: middle;
+  margin: 1vw;
 }
