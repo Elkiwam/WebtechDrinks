@@ -12,6 +12,10 @@ const ingrCounter = document.querySelector("[data-js='ingrCounter']");
 //  preparation instructions
 const preparationContainer = document.querySelector("[data-js='preparation']");
 
+// // card element change bg color on click preparation
+// const card = document.querySelector("card");
+// card.style.backgroundColor = "#f0f0f0"; // Set a light background color for the card
+
 
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
   .then((response) => response.json())
