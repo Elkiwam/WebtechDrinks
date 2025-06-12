@@ -27,13 +27,6 @@ content.style.backgroundColor = "rgb(50, 68, 127)";
 glassType.style.backgroundColor = "rgb(50, 68, 127)";
 const glassImgElement = document.querySelector("glass-type img");
 
-// img border radius change on click
-// imgContainer.addEventListener("DOMNodeInserted", () => {
-//   const img = imgContainer.querySelector("img");
-//   if (img) {
-//     img.style.borderRadius = "20px";
-//   }
-// });
 
 // button colors to change on click
  const button1 = document.querySelector(".button1");
@@ -268,7 +261,7 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-// color toggler styling the card bg and texts 
+// toggler styling the card bg and texts 
 slider.addEventListener("click", function() {
   const currentColor = card.style.backgroundColor;
   const color1 = "rgb(30, 30, 30)"; 
@@ -308,12 +301,7 @@ slider.addEventListener("click", function() {
           button.style.backgroundColor = "rgb(255, 255, 255)"; // original color
           button.style.color = "rgb(0, 0, 0)"; // original text color
 
-          imgContainer.addEventListener("DOMNodeInserted", () => {
-  const img = imgContainer.querySelector("img");
-  if (img) {
-    img.style.borderRadius = "20px";
-  }
-});
+         
         });
       });
      });
@@ -351,4 +339,31 @@ slider.addEventListener("click", function() {
      });
     console.log("Color mode 2");
   }
+});
+
+//hover effect on full card
+card.addEventListener("mouseover", function() {
+  card.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.3)";
+});
+card.addEventListener("mouseout", () => {
+  card.style.boxShadow = "0 0 0 rgb(0, 0, 0)";
+});
+
+// Add slight movement to the card based on mouse position
+card.addEventListener("mousemove", (event) => {
+  const rect = card.getBoundingClientRect();
+  const x = event.clientX - rect.left; 
+  const y = event.clientY;
+
+  const centerX = rect.width;
+  const centerY = rect.height;
+
+  const rotateX = ((y - centerY) / centerY) * -15;
+  const rotateY = ((x - centerX) / centerX) * -15;
+  card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+// Reset the card's position when the mouse leaves
+card.addEventListener("mouseleave", () => {
+  card.style.transform = "rotateX(0deg) rotateY(0deg)";
 });

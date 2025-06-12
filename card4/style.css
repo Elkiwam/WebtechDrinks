@@ -1,4 +1,6 @@
 /* A very basic CSS reset: More about CSS resets: https://meyerweb.com/eric/tools/css/reset/ */
+/* move js styling here, keep styling in css toggle classes in js */
+
 
 @font-face {
   font-family: BebasNeue;
@@ -79,7 +81,7 @@ hr {
 .main-image img {
   width: 100%;
   margin-top: 3vw;
-  /* border-radius: 20px; */
+  border-radius: 20px;
 }
 
 /* button style for card buttons */
@@ -124,9 +126,9 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3vw;
-  height: 3vw;
-  padding: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
   border-radius: 50%;
   /* background-color: #32447f; */
 }
