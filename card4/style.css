@@ -21,7 +21,7 @@ h2 {
   font-size: 2.4rem;
   margin-bottom: 0;
   margin-top: 3vw;
-  font-family: BebasNeue;
+  /* font-family: PlayPen; */
   letter-spacing: 0.01em;
 }
 
@@ -57,10 +57,11 @@ hr {
   /* bg-color is currently defined by js */
   /* background-color: #000f43; */
   /* color: rgb(255, 255, 255); */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding: 20px;
   flex-direction: column;
   justify-content: space-between;
+  transition-duration: 0.4s;
 }
 
 .cardContent {
@@ -77,7 +78,8 @@ hr {
 
 .main-image img {
   width: 100%;
-  padding-top: 3vw;
+  margin-top: 3vw;
+  /* border-radius: 20px; */
 }
 
 /* button style for card buttons */
@@ -96,25 +98,25 @@ hr {
 }
 
 .button1 {
-  background-color: white;
-  color: black;
+  /* background-color: white; */
+  /* color: black; */
   grid-area: button;
 }
 
 .button1:hover {
-  background-color: #32447f;
+  /* background-color: #32447f; */
   color: white;
 }
 
 /* second button style */
 .button2 {
-  background-color: #32447f;
+  background-color: #b3b3b3;
   color: rgb(255, 255, 255);
   grid-area: button;
 }
 
 .button2:hover {
-  background-color: #bdbdff;
+  /* background-color: #bdbdff; */
   color: white;
 }
 
@@ -122,11 +124,11 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 4vw;
-  height: 4vw;
+  width: 3vw;
+  height: 3vw;
   padding: 10px;
   border-radius: 50%;
-  background-color: #32447f;
+  /* background-color: #32447f; */
 }
 
 .glass-type img {
@@ -160,14 +162,16 @@ hr {
 
 /* collapsible description */
 .collapsible {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  /* background-color: #ffffff;
+  color: rgb(0, 0, 0); */
   padding: 12px 18px;
   text-align: left;
   display: inline-block;
   margin: 0;
   align-content: stretch;
   grid-area: collapsible;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .active {
@@ -176,7 +180,7 @@ hr {
 }
 
 .collapsible:hover {
-  background-color: #32447f;
+  /* background-color: #32447f; */
   color: rgb(255, 255, 255);
 }
 
@@ -184,7 +188,7 @@ hr {
   padding: 0 12px;
   display: none;
   overflow: hidden;
-  background-color: #32447f;
+  /* background-color: #32447f; */
   margin-top: 0.6em;
   /* grid-area is used to place this class in the grid inside the button-layout */
   grid-area: description;
