@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Card</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+
+  <div class="header">
+  <!-- <a><button class="button button1" onclick="history.go(-1)">Go Back</button></a> -->
+  <a href="../index.html"><button class="button button2">Back to overview</button></a>
+
+  <!-- toggle slider for color change -->
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+</div>
+
+
+  <div class="card">
+
+    <div class="button-layout">
+    <!-- refresh the page with this button -->
+    <a href="./"><button class="button button1">Suggest new drink</button></a>
+  
+     <!-- collapsible description -->
+  <p class="collapsible">See full recipe</p>
+  <div class="content">
+    <p class="prep-info" data-js="preparation">
+      <!-- prep info will be dynamically added here -->
+  </p>
+  </div>
+</div>
+
+    <div class="cardContent">
+    <h2 data-js="title">
+      <!-- display title after loading data -->
+    </h2>
+   
+    <p class="ingredientCount" data-js="ingrCounter"> 
+      <!-- Ingredient amount and info will be dynamically added here -->
+   </p>
+
+
+    <h3>You will need </h3>
+    <hr>
+    <p data-js="ingredients">
+      <!-- Ingredients will be dynamically added here -->
+    </p>
+
+    <div class="glass-type" data-js="glassType">
+      <!-- Glass will be dynamically added here -->
+    </div>
+  </div>
+
+    <div data-js="photo" class="main-image">
+      <!-- append image later in here -->
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+<!-- next To-Dos 
+complete icon glass list
+complete toggle function to include the buttons and glass type icon
+style toggle function/nice colors 
+add hover effect to button or card (or both)-->
