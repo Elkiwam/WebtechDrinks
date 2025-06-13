@@ -1,140 +1,18 @@
 console.log("...fetching a random cocktail");
-
-// prepare needed dom elements
 const titleContainer = document.querySelector("[data-js='title']");
 const imgContainer = document.querySelector("[data-js='photo']");
-// glass type container
 const glassType = document.querySelector("[data-js='glassType']");
-//ingredient counter
 const ingredientList = document.querySelector("[data-js='ingredients']");
-const ingredients = new Array();
+const ingredients = [];
 const ingrCounter = document.querySelector("[data-js='ingrCounter']");
-//  preparation instructions
 const preparationContainer = document.querySelector("[data-js='preparation']");
-
-//slider test for toggle 
-const slider = document.querySelector(".slider");
-
-// card element change colors on click
 const card = document.querySelector(".card");
-card.style.backgroundColor = "rgb(120, 120, 240)";
-card.style.color = "rgb(210, 210, 255)";
-card.style.borderRadius = "0px";
-//collapsible background color
 const content = document.querySelector(".content");
-content.style.backgroundColor = "rgb(50, 68, 127)";
-//glass type change color on click
-glassType.style.backgroundColor = "rgb(50, 68, 127)";
-const glassImgElement = document.querySelector("glass-type img");
-
-//testing image corner thingy on button change
-
-
-// button colors to change on click
- const button1 = document.querySelector(".button1");
- const button2 = document.querySelector(".button2");
- const collapsible = document.querySelector(".collapsible");
- button1.style.backgroundColor = "rgb(255, 255, 255)"; 
- button1.style.color = "rgb(0, 0, 0)"; 
- collapsible.style.backgroundColor = "rgb(255, 255, 255)";
- collapsible.style.color = "rgb(0, 0, 0)";
-
-// Change the border-radius of buttons
-button1.style.borderRadius = "25px"; 
-button2.style.borderRadius = "25px";
-collapsible.style.borderRadius = "25px"; 
-
-//change the font of h2 on toggle
-const h2Elements = document.querySelectorAll("h2");
-h2Elements.forEach((h2) => {
-  h2.style.fontFamily = "PlayPen, sans-serif";
-  h2.style.color = "rgb(255, 255, 255)"; // Change to your desired color
-});
-// Add hover state for the buttons
-const buttons = [button1, button2, collapsible];
-
-buttons.forEach((button) => {
-  button.addEventListener("mouseover", () => {
-    button.style.backgroundColor = "rgb(50, 68, 127)"; // Change to hover color
-    button.style.color = "rgb(255, 255, 255)"; // Change to hover text color
-  });
-
-  button.addEventListener("mouseout", () => {
-    button.style.backgroundColor = "rgb(255, 255, 255)"; // original color
-    button.style.color = "rgb(0, 0, 0)"; // original text color
-  });
-});
-
-//style saver should include button hover colors
-// Function to save the current style to localStorage
-function saveStyleToLocalStorage() {
-  const styleData = {
-    cardBackgroundColor: card.style.backgroundColor,
-    cardTextColor: card.style.color,
-    buttonBackgroundColor: button1.style.backgroundColor,
-    buttonBorderRadius: button1.style.borderRadius,
-    buttonHoverBackgroundColor: "rgb(50, 68, 127)", // Default hover color for darker mode
-    buttonHoverTextColor: "rgb(255, 255, 255)", // Default hover text color for darker mode
-    h2FontFamily: h2Elements[0].style.fontFamily,
-    h2Color: h2Elements[0].style.color,
-    glassTypeBackgroundColor: glassType.style.backgroundColor,
-    contentBackgroundColor: content.style.backgroundColor,
-  };
-  localStorage.setItem("styleData", JSON.stringify(styleData));
-}
-
-// Function to load the style from localStorage
-function loadStyleFromLocalStorage() {
-  const styleData = JSON.parse(localStorage.getItem("styleData"));
-  if (styleData) {
-    card.style.backgroundColor = styleData.cardBackgroundColor;
-    card.style.color = styleData.cardTextColor;
-    button1.style.backgroundColor = styleData.buttonBackgroundColor;
-    button1.style.borderRadius = styleData.buttonBorderRadius;
-    button2.style.borderRadius = styleData.buttonBorderRadius;
-    collapsible.style.borderRadius = styleData.buttonBorderRadius;
-    h2Elements.forEach((h2) => {
-      h2.style.fontFamily = styleData.h2FontFamily;
-      h2.style.color = styleData.h2Color;
-    });
-    glassType.style.backgroundColor = styleData.glassTypeBackgroundColor;
-    content.style.backgroundColor = styleData.contentBackgroundColor;
-
-    // Apply hover colors to buttons
-    buttons.forEach((button) => {
-      button.dataset.hoverBackgroundColor = styleData.buttonHoverBackgroundColor;
-      button.dataset.hoverTextColor = styleData.buttonHoverTextColor;
-
-      button.addEventListener("mouseover", () => {
-        button.style.backgroundColor = styleData.buttonHoverBackgroundColor;
-        button.style.color = styleData.buttonHoverTextColor;
-      });
-
-      button.addEventListener("mouseout", () => {
-        button.style.backgroundColor = styleData.buttonBackgroundColor;
-        button.style.color = "rgb(0, 0, 0)"; // Default text color
-      });
-    });
-  }
-}
-
-// Ensure DOM is fully loaded before executing the code
-document.addEventListener("DOMContentLoaded", () => {
-  // Load the style when the page is loaded
-  loadStyleFromLocalStorage();
-
-  // Save the style whenever the slider is clicked
-  if (slider) {
-    slider.addEventListener("click", saveStyleToLocalStorage);
-  }
-});
-//style saver done
+const slider = document.querySelector(".slider");
 
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
   .then((response) => response.json())
   .then((data) => {
-    // Process the fetched data here
-
     // select the first (and only drink of the results)
     const drink = data.drinks[0];
 
@@ -162,7 +40,6 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       }
     }
 
-
     // check in console
     console.log("All Ingredients:", ingredients);
     ingredients.forEach(ing => console.log(ing));
@@ -177,8 +54,6 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
 
 // check glass type in console
 console.log("Glass Type:", drink.strGlass);
-
-
 
 // Assign different images to each glass type
 //try to sanitize /rewrite 
@@ -246,7 +121,6 @@ if (ingredientCount <= 2) {
     console.error("Error:", error);
   });
 
-
   // event listener for description collapsible
   var coll = document.getElementsByClassName("collapsible");
   var i;
@@ -262,86 +136,6 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-
-// toggler styling the card bg and texts 
-slider.addEventListener("click", function() {
-  const currentColor = card.style.backgroundColor;
-  const color1 = "rgb(30, 30, 30)"; 
-  const color2 = "rgb(120, 120, 240)"; 
-  const currentTextColor = card.style.color;
-  const textColor1 = "rgb(210, 210, 255)"; 
-  const textColor2 = "rgb(255, 255, 255)"; 
-  currentButtonColor = button1.style.backgroundColor;
-  const buttonColor1 = "rgb(255, 255, 255)"; 
-  const buttonColor2 = "rgb(255,255,255)"; 
-
-  if (currentColor === color1) {
-    card.style.backgroundColor = color2; 
-    card.style.color = textColor1; 
-    card.style.borderRadius = "25px";
-    //buttons here
-     button1.style.backgroundColor = buttonColor1; 
-     button1.style.borderRadius = "25px"; 
-     button2.style.borderRadius = "25px";
-     collapsible.style.borderRadius = "25px";
-     // h2 styling
-     h2Elements.forEach((h2) => {
-       h2.style.fontFamily = "PlayPen, sans-serif";
-       h2.style.color = "rgb(255, 255, 255)";
-       //glass type background color
-       glassType.style.backgroundColor = "rgb(50, 68, 127)";
-           //collapsible background color
-          content.style.backgroundColor = "rgb(50, 68, 127)";
-       //button hover
-       buttons.forEach((button) => {
-        button.addEventListener("mouseover", () => {
-          button.style.backgroundColor = "rgb(50, 68, 127)"; // Change to hover color
-          button.style.color = "rgb(255, 255, 255)"; // Change to hover text color
-        });
-      
-        button.addEventListener("mouseout", () => {
-          button.style.backgroundColor = "rgb(255, 255, 255)"; // original color
-          button.style.color = "rgb(0, 0, 0)"; // original text color
-
-         
-        });
-      });
-     });
-    console.log("Color mode 1");
-  } else {
-    card.style.backgroundColor = color1; 
-    card.style.color = textColor2;
-    card.style.borderRadius = "0px";
-        //buttons here
-     button1.style.backgroundColor = buttonColor2;
-     button1.style.borderRadius = "0px"; 
-     button2.style.borderRadius = "0px";
-     collapsible.style.borderRadius = "0px";
-     // h2 styling
-     h2Elements.forEach((h2) => {
-       h2.style.fontFamily = "BebasNeue, sans-serif";
-       h2.style.color = "rgb(255, 255, 255)";
-    //glass type background color
-    glassType.style.backgroundColor = "rgb(200, 68, 127)";
-    //collapsible background color
-    content.style.backgroundColor = "rgb(200, 68, 127)";
-//button hover
-              buttons.forEach((button) => {
-                button.addEventListener("mouseover", () => {
-                  button.style.backgroundColor = "rgb(200, 68, 127)"; // Change to hover color
-                  button.style.color = "rgb(255, 255, 255)"; // Change to hover text color
-                });
-              
-                button.addEventListener("mouseout", () => {
-                  button.style.backgroundColor = "rgb(255, 255, 255)"; // original color
-                  button.style.color = "rgb(0, 0, 0)"; // original text color
-                });
-              });
-
-     });
-    console.log("Color mode 2");
-  }
-});
 
 //hover effect on full card
 card.addEventListener("mouseover", function() {
@@ -369,3 +163,14 @@ card.addEventListener("mousemove", (event) => {
 card.addEventListener("mouseleave", () => {
   card.style.transform = "rotateX(0deg) rotateY(0deg)";
 });
+
+// Toggle between different modes on click of the slider
+card.classList.add("difMode");
+imgContainer.classList.add("roundStyle");
+//img.classList.add("roundStyle");
+slider.addEventListener("click", function(){
+  card.classList.toggle("difMode");
+  imgContainer.classList.toggle("roundStyle");
+  console.log("class changed");
+});
+

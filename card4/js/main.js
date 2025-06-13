@@ -27,9 +27,6 @@ content.style.backgroundColor = "rgb(50, 68, 127)";
 glassType.style.backgroundColor = "rgb(50, 68, 127)";
 const glassImgElement = document.querySelector("glass-type img");
 
-//testing image corner thingy on button change
-
-
 // button colors to change on click
  const button1 = document.querySelector(".button1");
  const button2 = document.querySelector(".button2");
@@ -130,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //style saver done
 
+//fetching the data
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
   .then((response) => response.json())
   .then((data) => {
@@ -162,7 +160,6 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       }
     }
 
-
     // check in console
     console.log("All Ingredients:", ingredients);
     ingredients.forEach(ing => console.log(ing));
@@ -172,13 +169,8 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       .map(ingredient => `<ul>${ingredient}</ul>`)
       .join('');
 
-//line below displays glass type in text
-//glassType.innerHTML = drink.strGlass;
-
 // check glass type in console
 console.log("Glass Type:", drink.strGlass);
-
-
 
 // Assign different images to each glass type
 //try to sanitize /rewrite 
@@ -229,12 +221,11 @@ if (ingredientCount <= 2) {
   ingrCounter.innerHTML += ` Impressive! (${ingredientCount} ingredients)`;
 }
 
-  // Check if the drink has preparation instructions
+  // Check if the drink has preparation instructions and display 
   if (drink.strInstructions) {
-    // Display the preparation instructions in the container
     preparationContainer.innerHTML = `<p>${drink.strInstructions}</p>`;
   } else {
-    // If no instructions are available, display a default message
+//default when no prep is found
     preparationContainer.innerHTML = `<p>Preparation instructions are not available for this drink.</p>`;
   }
 
